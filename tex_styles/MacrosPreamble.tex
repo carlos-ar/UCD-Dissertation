@@ -1,0 +1,84 @@
+% Use this file to load additional packages or define macro
+% commands that will be used in the dissertation.
+%
+
+\usepackage{graphicx}
+\usepackage{caption} %%% optional but probably necessary
+\usepackage{subcaption} %%% optional but probably necessary
+
+%% -- CAR added packages
+%% All of the packages below are for a specific reason, and I
+%% added the comments next to the package
+
+%% -- For generating text to test template
+\usepackage{blindtext}
+
+%% -- Since I changed from standard book from amsbook, I needed to get
+%% the page layout to look the same, so I used the package layout
+%% to print out the margins and then I did some maths to get the
+%% margins to fit within UCD's limits
+\usepackage{layout}
+% -- new lengths
+\setlength{\footskip}{18pt}
+\setlength{\textheight}{9in}
+
+%% -- Nice looking tables
+%% I use https://www.tablesgenerator.com/ when coming up with ideas
+\usepackage{booktabs}
+%% -- % I preferred to use a different title and section formatting,
+%% and to do so I ended up using the titlesec package.
+%% The formatting specific commands are below
+\usepackage{titlesec}
+\usepackage{titletoc}
+% -- for colors mainly to highlight pieces
+\usepackage{xcolor}
+% -- JP asked for a flow chart, and instead of making a ppt or word
+%% document, I said "why not learn tikz?", but given that this was
+%% 2 weeks before the deadline, I ended up using
+%% https://www.mathcha.io/editor
+\usepackage{tikz}
+
+%% -- Some commands for works I did not want to re-type
+\DeclareMathOperator{\erfc}{ercf}
+\newcommand{\invivo}{\emph{in-vivo}}
+\newcommand{\invitro}{\emph{in-vitro}}
+\newcommand{\flowrate}{$\mu$m\textsuperscript{2}/s}
+\newcommand{\velocity}{$\mu$m/s}
+\newcommand{\pmten}{PM\textsubscript{10}}
+\newcommand{\pmtwofive}{PM\textsubscript{2.5}}
+\newcommand{\pmultra}{PM\textsubscript{0.1}}
+
+
+%% -- 'titlesec' has a lot of fine tuning, so I took the defaults and played around
+%% with it a bit.
+%% Directly took this from the titlesec documentation
+
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat{\section}
+{\normalfont\Large\bfseries\singlespacing}{\thesection}{1em}{}
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+\titleformat{\paragraph}[runin]
+{\normalfont\normalsize\itshape}{\theparagraph}{1em}{---}[:~~~]
+\titleformat{\subparagraph}[runin]
+{\normalfont\normalsize\bfseries}{\thesubparagraph}{1em}{}
+
+%% defaults for titlesec package
+\titlespacing*{\chapter} {0pt}{5pt}{4pt}
+\titlespacing*{\section} {0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+\titlespacing*{\subsection} {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\titlespacing*{\subsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\titlespacing*{\paragraph} {0pt}{3.25ex plus 1ex minus .2ex}{1em}
+\titlespacing*{\subparagraph} {\parindent}{3.25ex plus 1ex minus .2ex}{1em}
+
+%% -- 'tikz' package setup, essentially copied after generating the 
+%% flowchart in mathcha.io
+\usetikzlibrary{shapes.geometric, arrows}
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30,text width = 3cm]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]

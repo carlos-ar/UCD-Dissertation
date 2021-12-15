@@ -1,0 +1,155 @@
+%!TEX program = xelatex
+% This document is designed to conform to the style and layout
+% guidelines stipulated in the document "Preparing and Filing the
+% Thesis or Dissertation" at
+% 
+% http://www.gradstudies.ucdavis.edu/students/filing.html
+% 
+% and in the sample dissertation title page at
+% 
+% http://www.gradstudies.ucdavis.edu/students/sample_title.html
+% 
+% ---Tyrrell McAllister
+%
+
+\input{tex_styles/LayoutPreamble.tex}
+
+\input{tex_styles/MacrosPreamble.tex}
+
+%%% environments
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{remark}{Remark}[section]
+
+%%% use lowercase letters for subcaption labeling
+\captionsetup[subfigure]{labelfont=rm}
+
+% \begin{document}\layout
+\begin{document}
+   \frontmatter
+
+   \pagestyle{prelim}
+   
+% Redefine plain page style so that the first pages of chapters
+   % have desired page style.
+   %
+   \fancypagestyle{plain}{%
+      \fancyhf{}
+      \cfoot{\thepage}
+   }%
+   \input{frontmatter/TitlePage.tex}
+   \newpage
+   
+    %%% (optional) copyright page <== this page is not numbered!
+	 \thispagestyle{empty}
+	 \begin{titlepage}
+	 \vspace*{\fill}
+	 \begin{center}
+		 \copyright \ Carlos A.\ Ruvalcaba, 2021.  All rights reserved.  
+	 \end{center}
+	 \end{titlepage}
+	 \newpage
+	 \stepcounter{page}
+	
+	 %%% (optional) dedication page
+	 \thispagestyle{plain}
+	 \vspace*{20em}
+	 \begin{center}\emph{
+    Dedicado a mi familia, cuyos sacrificios fueron mayores que los míos \\
+    Dedicated to my family, whose sacrifices were greater than mine} 
+	 \end{center}
+   \newpage
+      
+   % Begin Double Spacing
+   %
+   \doublespacing
+
+   \tableofcontents
+
+   \newpage
+   \input{frontmatter/Abstract.tex}
+   \newpage
+   \input{frontmatter/Acknowledgments.tex}
+   
+   \mainmatter
+
+   \pagestyle{maintext}
+   
+   % Redefine plain page style so that the first pages of 
+   % chapters have desired page style.
+   %
+   \fancypagestyle{plain}{%
+      \renewcommand{\headrulewidth}{0pt}
+      \fancyhf{}
+      \cfoot{\thepage}%%%
+   }%
+   
+   \chapter{Introduction}
+   \label{ch:IntroductionLabel}
+   \input{chapters/chp1-intro.tex}
+
+% ---- chapter 2
+   \chapter[%       
+   Governing Equations and Numerical Methodology
+   ]{% 
+      Governing Equations and Numerical\\Methodology
+   }%
+   \label{ch:2ndChapterLabel}
+   \input{chapters/chp2-methodology.tex}
+
+% ---- chapter 3
+   \chapter[% 
+      Chapter 3 short title
+   ]{% 
+      A title for chapter 3 that is very\\long and needs to exist in two lines
+   }%
+   \label{ch:3rdChapterLabel}
+   \input{chapters/chp3-single.tex}
+
+
+% ---- chapter 7
+   \chapter[% 
+      Conclusion and Future Work
+   ]{% 
+      Conclusions and Future Work
+   }%
+   \label{ch:7thChapterLabel}
+   \input{chapters/chp7-conclusion.tex}
+   
+   \appendix
+
+
+   \chapter[%
+      Appendix A 
+   ]{%
+      Long Title of Appendix A
+   }%
+   \label{ch:AppendixALabel}
+   \input{appendices/AppendixA.tex}
+
+   \chapter[%
+      Appendix B 
+   ]{%
+      Long Title of Appendix B
+   }%
+   \label{ch:AppendixBLabel}
+   \input{appendices/AppendixB.tex}
+       
+   \backmatter
+   
+   % Sets bio to SIAM stype format
+   % \bibliographystyle{siam}
+   
+   % Sets bio to AMS style format
+   % \bibliographystyle{amsalpha-fi-arxlast}
+
+   % Sets bio to custom unsorted, natbib style format
+   % removed the url and doi since the formatting was wonky
+   \bibliographystyle{unsrtnatcar}
+   \phantomsection
+   \addcontentsline{toc}{chapter}{References}
+   \renewcommand{\bibname}{References}
+   \bibliography{master_list}
+
+\end{document}
