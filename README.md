@@ -1,5 +1,5 @@
 # UCD-Dissertation-Template
-2021 Dissertation template modified from the Galois Group template.
+2021 Dissertation template modified from the [Galois Group template](https://galois.math.ucdavis.edu/doku.php?id=thesistips). I do not take credit for any of the hard work by all the individuals who worked on such a useful dissertation template. I thank them for their work.
 
 Some notes
 
